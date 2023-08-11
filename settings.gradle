@@ -1,0 +1,3 @@
+rootProject.name = 'par-king'
+include 'par-king-api'
+
