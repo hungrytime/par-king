@@ -21,6 +21,7 @@ data class MemberJpaEntity(
     val occupiedParkingLot: Long? = null
 
 ) : BaseEntity() {
+
     fun to() = Member(
         memberId = this.memberId,
         memberStatus = this.memberStatus,
@@ -30,4 +31,10 @@ data class MemberJpaEntity(
         createdDate = this.createdAt.toString(),
         occupiedParkingLot = this.occupiedParkingLot
     )
+
+    companion object {
+        fun from(member: Member) = MemberJpaEntity(
+           userId = member.userId, password = member.password, userName = member.userName
+        )
+    }
 }
