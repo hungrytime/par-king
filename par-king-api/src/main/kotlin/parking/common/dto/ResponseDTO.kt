@@ -1,4 +1,4 @@
-package parking.common.DTO
+package parking.common.dto
 
 import parking.common.ResultCode
 

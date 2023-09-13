@@ -1,11 +1,12 @@
 package parking.adapter.`in`
 
 import org.springframework.web.bind.annotation.*
+import parking.adapter.DTO.MemberInfoDTO
 import parking.adapter.DTO.SignUpMemberDTO
 import parking.application.port.`in`.FindMemberUseCase
 import parking.application.port.`in`.SignInUseCase
 import parking.application.port.`in`.SignUpUseCase
-import parking.common.DTO.ResponseDTO
+import parking.common.dto.ResponseDTO
 
 @RestController
 @RequestMapping("/member")
@@ -26,6 +27,13 @@ class MemberController(
         @RequestParam password: String
     ): ResponseDTO<Boolean> {
         return ResponseDTO.success(signInUseCase.signInUseCase(userId, password))
+    }
+
+    @GetMapping("/info")
+    fun getMemberInfo(
+        @RequestParam userId: String
+    ): ResponseDTO<MemberInfoDTO> {
+        return ResponseDTO.success(MemberInfoDTO.from(findMemberUseCase.userInfoByUserId(userId)))
     }
 
     @PostMapping("/sign-up")

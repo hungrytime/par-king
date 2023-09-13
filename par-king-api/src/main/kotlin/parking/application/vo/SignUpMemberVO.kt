@@ -1,4 +1,4 @@
-package parking.application.VO
+package parking.application.vo
 
 data class SignUpMemberVO(
     private val userId: String,
