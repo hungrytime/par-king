@@ -1,6 +1,6 @@
 package parking.adapter.DTO
 
-import parking.application.VO.SignUpMemberVO
+import parking.application.vo.SignUpMemberVO
 
 data class SignUpMemberDTO(
     val userId: String,
