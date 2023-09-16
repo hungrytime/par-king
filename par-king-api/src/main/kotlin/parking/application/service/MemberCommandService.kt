@@ -3,7 +3,7 @@ package parking.application.service
 import org.springframework.stereotype.Service
 import parking.application.port.`in`.SignUpUseCase
 import parking.application.port.out.SaveMemberPort
-import parking.domain.Member
+import parking.domain.entity.Member
 
 @Service
 class MemberCommandService(

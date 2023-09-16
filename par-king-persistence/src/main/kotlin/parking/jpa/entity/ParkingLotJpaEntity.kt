@@ -1,6 +1,6 @@
 package parking.jpa.entity
 
-import parking.domain.ParkingLot
+import parking.domain.entity.ParkingLot
 import javax.persistence.*
 
 @Entity

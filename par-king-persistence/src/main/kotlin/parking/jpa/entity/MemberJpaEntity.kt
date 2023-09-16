@@ -1,7 +1,7 @@
 package parking.jpa.entity
 
-import parking.domain.Member
-import parking.domain.MemberStatus
+import parking.domain.entity.Member
+import parking.domain.entity.MemberStatus
 import javax.persistence.*
 
 @Entity

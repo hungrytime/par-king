@@ -1,7 +1,7 @@
 package parking.application.vo
 
-import parking.domain.Member
-import parking.domain.MemberStatus
+import parking.domain.entity.Member
+import parking.domain.entity.MemberStatus
 
 data class MemberInfoVO(
     val userId: String,
