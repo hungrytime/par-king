@@ -1,4 +1,4 @@
-package parking.domain
+package parking.domain.entity
 
 data class ParkingLot(
     val parkingLotId: Long? = null,

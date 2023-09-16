@@ -2,7 +2,7 @@ package parking.adapter.out
 
 import org.springframework.stereotype.Component
 import parking.application.port.out.SaveMemberPort
-import parking.domain.Member
+import parking.domain.entity.Member
 import parking.jpa.entity.MemberJpaEntity
 import parking.jpa.repositories.MemberJpaRepository
 

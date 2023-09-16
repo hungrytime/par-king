@@ -1,6 +1,6 @@
 package parking.application.port.out
 
-import parking.domain.Member
+import parking.domain.entity.Member
 
 interface FindMemberPort {
     fun findMemberById(memberId: Long): Member

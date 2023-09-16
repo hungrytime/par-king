@@ -1,6 +1,7 @@
 package parking.common.dto
 
-import parking.common.ResultCode
+import parking.domain.exception.enum.ResultCode
+
 
 data class ResponseDTO<T>(
     val success: Boolean = true,

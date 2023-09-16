@@ -2,7 +2,7 @@ package parking.adapter.out
 
 import org.springframework.stereotype.Component
 import parking.application.port.out.FindParkingLotPort
-import parking.domain.ParkingLot
+import parking.domain.entity.ParkingLot
 import parking.jpa.repositories.ParkingLotJpaRepository
 
 @Component
