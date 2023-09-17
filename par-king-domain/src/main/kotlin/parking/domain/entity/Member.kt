@@ -10,6 +10,13 @@ data class Member(
     val createdDate: String? = null,
     val occupiedParkingLot: Long? = null
 ) {
+    fun selfValidCheck(userId: String, password: String, userName: String): Boolean {
+        if (this.userId != userId || this.password != password
+            || this.userName != userName) return false
+
+        return true
+    }
+
     fun changeRevoked() {
         this.memberStatus = MemberStatus.REVOKED
     }

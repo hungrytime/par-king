@@ -9,11 +9,11 @@ class ParkingLotJpaEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val parkingLotId: Long? = null,
-
-    val totalSpace: Long,
-    val availableSpace: Long,
     val name: String,
-    val city: String
+    val city: String,
+    val totalSpace: Long,
+    val availableSpace: Long
+
 ) : BaseEntity() {
     fun to() = ParkingLot(
         parkingLotId = this.parkingLotId,
@@ -22,4 +22,13 @@ class ParkingLotJpaEntity (
         name = this.name,
         city = this.city
     )
+
+    companion object {
+        fun from(parkingLot: ParkingLot) = ParkingLotJpaEntity(
+            name = parkingLot.name,
+            city = parkingLot.city,
+            totalSpace = parkingLot.totalSpace,
+            availableSpace = parkingLot.availableSpace
+        )
+    }
 }

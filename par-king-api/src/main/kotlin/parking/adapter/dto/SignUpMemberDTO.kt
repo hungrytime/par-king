@@ -1,4 +1,4 @@
-package parking.adapter.DTO
+package parking.adapter.dto
 
 import parking.application.vo.SignUpMemberVO
 
