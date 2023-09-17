@@ -1,8 +1,8 @@
 package parking.adapter.`in`
 
 import org.springframework.web.bind.annotation.*
-import parking.adapter.DTO.MemberInfoDTO
-import parking.adapter.DTO.SignUpMemberDTO
+import parking.adapter.dto.MemberInfoDTO
+import parking.adapter.dto.SignUpMemberDTO
 import parking.application.port.`in`.FindMemberUseCase
 import parking.application.port.`in`.SignInUseCase
 import parking.application.port.`in`.SignUpUseCase

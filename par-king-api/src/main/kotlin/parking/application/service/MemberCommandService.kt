@@ -11,7 +11,7 @@ class MemberCommandService(
 ) : SignUpUseCase {
     override fun signUp(userId: String, password: String, userName: String): Boolean {
         val member = saveMemberPort.saveMember(Member.toMember(userId, password, userName))
-        return saveCheck(member, userId, password, userName)
+        return member.selfValidCheck(userId, password, userName)
     }
 
     private fun saveCheck(member: Member, userId: String, password: String, userName: String): Boolean {
