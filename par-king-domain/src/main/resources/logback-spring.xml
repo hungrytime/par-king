@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--로그를 저장할 위치-->
+    <property name="LOG_DIR" value="/Users/kimwontae/Downloads/parking/logs" />
+
+    <!--console에서 보여지는 로그 설정-->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %class{36}.%method:%line - %msg%n</Pattern>
+        </layout>
+    </appender>
+    <!--로컬에 저장 되는 로그 설정-->
+    <appender name="APPLOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/app.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <Pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %class{36}.%method:%line - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="APPLOG"/>
+    </root>
+
+</configuration>
