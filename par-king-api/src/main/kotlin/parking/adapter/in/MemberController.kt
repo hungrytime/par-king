@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*
 import parking.adapter.dto.MemberInfoDTO
 import parking.adapter.dto.SignUpMemberDTO
 import parking.application.port.`in`.FindMemberUseCase
+import parking.application.port.`in`.ModifyMemberUseCase
 import parking.application.port.`in`.SignInUseCase
 import parking.application.port.`in`.SignUpUseCase
 import parking.common.dto.ResponseDTO
@@ -13,9 +14,9 @@ import parking.common.dto.ResponseDTO
 class MemberController(
     private val findMemberUseCase: FindMemberUseCase,
     private val signInUseCase: SignInUseCase,
-    private val signUpUseCase: SignUpUseCase
+    private val signUpUseCase: SignUpUseCase,
+    private val modifyMemberUseCase: ModifyMemberUseCase
 ) {
-
     @GetMapping
     fun test(): String {
         return findMemberUseCase.userIdByMemberId(1L)
@@ -41,5 +42,12 @@ class MemberController(
         @RequestBody member: SignUpMemberDTO
     ): ResponseDTO<Boolean> {
         return ResponseDTO.success(signUpUseCase.signUp(member.userId, member.password, member.userName))
+    }
+
+    @PostMapping("/modify")
+    fun modify(
+        @RequestBody member: MemberInfoDTO
+    ): ResponseDTO<Boolean> {
+        return ResponseDTO.success(modifyMemberUseCase.modifyMember(member.userId, member.userName))
     }
 }

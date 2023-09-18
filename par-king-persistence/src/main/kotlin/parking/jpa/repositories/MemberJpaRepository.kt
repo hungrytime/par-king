@@ -8,5 +8,5 @@ import parking.jpa.entity.MemberJpaEntity
 interface MemberJpaRepository : JpaRepository<MemberJpaEntity, Long>, MemberJpaRepositoryCustom
 
 interface MemberJpaRepositoryCustom{
-    fun findMemberByUserId(userId: String): MemberJpaEntity
+    fun findMemberByUserId(userId: String): MemberJpaEntity?
 }

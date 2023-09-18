@@ -13,4 +13,8 @@ class MemberCommandAdapter(
     override fun saveMember(member: Member): Member {
         return memberJapRepository.save(MemberJpaEntity.from(member)).to()
     }
+
+    override fun modifyMember(member: Member): Member {
+        return memberJapRepository.save(MemberJpaEntity.from(member)).to()
+    }
 }

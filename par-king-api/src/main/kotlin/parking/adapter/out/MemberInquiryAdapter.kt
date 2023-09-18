@@ -9,13 +9,16 @@ import parking.jpa.repositories.MemberJpaRepository
 class MemberInquiryAdapter(
    private val memberJapRepository: MemberJpaRepository
 ) : FindMemberPort {
+    override fun findMemberById(memberId: Long): Member? {
+        val optionalResult = memberJapRepository.findById(memberId)
 
-    override fun findMemberById(memberId: Long): Member {
-        return memberJapRepository.findAll().first().to()
+        if (optionalResult.isPresent) return optionalResult.get().to()
+
+        return null
     }
 
-    override fun findMemberByUserId(userId: String): Member {
-        return memberJapRepository.findMemberByUserId(userId).to()
+    override fun findMemberByUserId(userId: String): Member? {
+        return memberJapRepository.findMemberByUserId(userId)?.to()
     }
 
 }
