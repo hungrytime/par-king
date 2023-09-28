@@ -22,10 +22,19 @@ allprojects {
 	group = 'par-king'
 	version = '0.0.1-SNAPSHOT'
 
+	apply plugin: "org.sonarqube"
+
 	repositories {
 		getRepositories()
 		mavenLocal()
 		mavenCentral()
+	}
+
+	sonarqube {
+		properties {
+			property "sonar.exclusions", "**/generated/**, **/lib/**, **/configuration/**, **/*.js , **/*.groovy, " +
+					"**/*.xml, src/test/**"
+		}
 	}
 }
 
@@ -76,5 +85,17 @@ subprojects {
 			freeCompilerArgs = ["-Xjsr305=strict"]
 			jvmTarget= JavaVersion.VERSION_1_8
 		}
+	}
+
+	jacocoTestReport {
+		reports {
+			xml.enabled true
+			csv.enabled true
+		}
+	}
+
+	test {
+		useJUnitPlatform()
+		finalizedBy(jacocoTestReport)
 	}
 }
