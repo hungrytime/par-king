@@ -13,4 +13,8 @@ class ParkingLotCommandAdapter(
     override fun saveParkingLot(parkingLot: ParkingLot): ParkingLot {
         return parkingLotJpaRepository.save(ParkingLotJpaEntity.from(parkingLot)).to()
     }
+
+    override fun modifyParkingLot(parkingLot: ParkingLot): ParkingLot {
+        return parkingLotJpaRepository.save(ParkingLotJpaEntity.from(parkingLot)).to()
+    }
 }

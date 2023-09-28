@@ -15,8 +15,8 @@ data class ParkingLot(
     }
 
     companion object {
-        fun toParkingLot(name: String, city: String, totalSpace: Long) = ParkingLot(
-            name = name, city = city, totalSpace = totalSpace, availableSpace = 0L
+        fun toParkingLot(name: String, city: String, totalSpace: Long, availableSpace: Long?) = ParkingLot(
+            name = name, city = city, totalSpace = totalSpace, availableSpace = availableSpace ?: 0L
         )
     }
 }
