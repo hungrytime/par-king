@@ -11,8 +11,12 @@ import parking.jpa.repositories.ParkingLotJpaRepository
 class ParkingLotInquiryAdapter(
     private val parkingLotJpaRepository: ParkingLotJpaRepository
 ) : FindParkingLotPort {
-    override fun findParkingLot(parkingLotId: Long): ParkingLot {
-        return parkingLotJpaRepository.findById(parkingLotId).get().to()
+    override fun findParkingLot(parkingLotId: Long): ParkingLot? {
+        val parkingLot = parkingLotJpaRepository.findById(parkingLotId)
+
+        if(!parkingLot.isPresent) return null
+
+        return parkingLot.get().to()
     }
 
     override fun findParkingLotByCity(city: String, pageable: Pageable): Page<ParkingLot> {
