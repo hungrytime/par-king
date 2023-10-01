@@ -34,7 +34,7 @@ class MemberController(
     fun getMemberInfo(
         @RequestParam userId: String
     ): ResponseDTO<MemberInfoDTO> {
-        return ResponseDTO.success(MemberInfoDTO.from(findMemberUseCase.userInfoByUserId(userId)))
+        return ResponseDTO.success(MemberInfoDTO.from(findMemberUseCase.memberInfoByUserId(userId)))
     }
 
     @PostMapping("/sign-up")
