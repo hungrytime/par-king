@@ -5,5 +5,5 @@ import parking.application.vo.MemberInfoVO
 interface FindMemberUseCase {
     fun userIdByMemberId(memberId: Long): String
 
-    fun userInfoByUserId(userId: String): MemberInfoVO
+    fun memberInfoByUserId(userId: String): MemberInfoVO
 }

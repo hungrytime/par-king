@@ -17,7 +17,7 @@ class MemberInquiryService(
         return member.userId
     }
 
-    override fun userInfoByUserId(userId: String): MemberInfoVO {
+    override fun memberInfoByUserId(userId: String): MemberInfoVO {
         val member = findMemberPort.findMemberByUserId(userId) ?: throw MemberException(ResultCode.MEMBER_NOT_FOUND, "member not found")
         return MemberInfoVO.from(member)
     }
