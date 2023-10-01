@@ -3,7 +3,13 @@ package parking.domain.exception.enum
 enum class ResultCode {
     SUCCESS,
     FAIL,
+
+    //멤버 제외처리
     MEMBER_NOT_FOUND,
     MEMBER_AUTHENTICATION_FAIL,
-    MEMBER_INVALID
+    MEMBER_INVALID,
+    MEMBER_ALREADY_OCCUPIED,
+
+    //주차장 제외처리
+    PARKING_LOT_NOT_FOUND
 }

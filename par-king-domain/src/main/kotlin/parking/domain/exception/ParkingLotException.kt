@@ -2,7 +2,7 @@ package parking.domain.exception
 
 import parking.domain.exception.enum.ResultCode
 
-class MemberException(
+class ParkingLotException(
     override val resultCode: ResultCode,
     override val message: String?,
     override val cause: Throwable? = null,

@@ -5,11 +5,19 @@ data class ParkingLot(
     val name: String,
     val city: String,
     val totalSpace: Long,
-    val availableSpace: Long
+    var availableSpace: Long = 0L
 ) {
     fun selfValidCheck(name: String, city: String, totalSpace: Long): Boolean {
         if (this.name != name || this.city != city
             || this.totalSpace != totalSpace) return false
+
+        return true
+    }
+
+    fun makeOccupied() : Boolean {
+        if (this.availableSpace < 1) return false
+
+        this.availableSpace--
 
         return true
     }

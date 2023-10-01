@@ -5,6 +5,6 @@ import org.springframework.data.domain.Pageable
 import parking.domain.entity.ParkingLot
 
 interface FindParkingLotPort {
-    fun findParkingLot(parkingLotId: Long): ParkingLot
+    fun findParkingLot(parkingLotId: Long): ParkingLot?
     fun findParkingLotByCity(city: String, pageable: Pageable): Page<ParkingLot>
 }
