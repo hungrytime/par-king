@@ -59,5 +59,8 @@ class MemberCommandService(
         parkingLot.makeOccupied()
         member.makeOccupiedParkingLot(parkingLotId)
 
+        saveMemberPort.saveMember(member)
+        saveParkingLotPort.saveParkingLot(parkingLot)
+
     }
 }
