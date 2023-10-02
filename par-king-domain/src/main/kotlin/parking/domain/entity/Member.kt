@@ -34,8 +34,12 @@ data class Member(
         return false
     }
 
-    fun makeOccupiedParkingLot(parkingLotId: Long) {
+    fun occupyParkingLot(parkingLotId: Long) {
         this.occupiedParkingLot = parkingLotId
+    }
+
+    fun releaseParkingLot() {
+        this.occupiedParkingLot = null
     }
 
     companion object {

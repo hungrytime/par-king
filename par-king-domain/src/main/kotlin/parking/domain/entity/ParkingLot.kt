@@ -1,5 +1,8 @@
 package parking.domain.entity
 
+import parking.domain.exception.ParkingLotException
+import parking.domain.exception.enum.ResultCode
+
 data class ParkingLot(
     val parkingLotId: Long? = null,
     val name: String,
@@ -14,12 +17,22 @@ data class ParkingLot(
         return true
     }
 
-    fun makeOccupied() : Boolean {
-        if (this.availableSpace < 1) return false
+    fun occupy() {
+        if (this.availableSpace < 1) throw ParkingLotException(
+            ResultCode.PARKING_LOT_ALREADY_FULL,
+            message = "이용할 수 있는 주차 공간이 없습니다."
+        )
 
         this.availableSpace--
+    }
 
-        return true
+    fun release() {
+        if (this.availableSpace >= this.totalSpace) throw ParkingLotException(
+            ResultCode.PARKING_LOT_CAN_NOT_RELEASE,
+            message = "이미 주차 공간이 모두 이용가능하여, [${this.name}]의 찜 해제할 수 없습니다."
+        )
+
+        this.availableSpace++
     }
 
     companion object {
