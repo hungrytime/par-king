@@ -3,10 +3,7 @@ package parking.adapter.`in`
 import org.springframework.web.bind.annotation.*
 import parking.adapter.dto.MemberInfoDTO
 import parking.adapter.dto.SignUpMemberDTO
-import parking.application.port.`in`.FindMemberUseCase
-import parking.application.port.`in`.ModifyMemberUseCase
-import parking.application.port.`in`.SignInUseCase
-import parking.application.port.`in`.SignUpUseCase
+import parking.application.port.`in`.*
 import parking.common.dto.ResponseDTO
 
 @RestController
@@ -15,7 +12,9 @@ class MemberController(
     private val findMemberUseCase: FindMemberUseCase,
     private val signInUseCase: SignInUseCase,
     private val signUpUseCase: SignUpUseCase,
-    private val modifyMemberUseCase: ModifyMemberUseCase
+    private val modifyMemberUseCase: ModifyMemberUseCase,
+    private val occupyParkingLot: OccupyParkingLot,
+    private val releaseParkingLot: ReleaseParkingLot
 ) {
     @GetMapping
     fun test(): String {
@@ -49,5 +48,20 @@ class MemberController(
         @RequestBody member: MemberInfoDTO
     ): ResponseDTO<Boolean> {
         return ResponseDTO.success(modifyMemberUseCase.modifyMember(member.userId, member.userName))
+    }
+
+    @PostMapping("/parkingLot/occupy")
+    fun occupyParkingLot(
+        @RequestParam userId: String,
+        @RequestParam parkingLotId: Long
+    ): ResponseDTO<Unit> {
+        return ResponseDTO.success(occupyParkingLot.occupyParkingLot(userId, parkingLotId))
+    }
+
+    @PostMapping("/parkingLot/release")
+    fun releaseParkingLot(
+        @RequestParam userId: String
+    ): ResponseDTO<Unit> {
+        return ResponseDTO.success(releaseParkingLot.releaseParkingLot(userId))
     }
 }
